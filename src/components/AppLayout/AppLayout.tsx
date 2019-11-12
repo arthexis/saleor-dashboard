@@ -62,6 +62,12 @@ const useStyles = makeStyles(
       marginLeft: theme.spacing(2),
       transition: theme.transitions.duration.standard + "ms"
     },
+    avatar: {
+      "&&": {
+        height: 32,
+        width: 32
+      }
+    },
     content: {
       [theme.breakpoints.down("sm")]: {
         paddingLeft: 0
@@ -77,9 +83,16 @@ const useStyles = makeStyles(
       paddingLeft: drawerWidth
     },
     darkThemeSwitch: {
+      [theme.breakpoints.down("sm")]: {
+        marginRight: -theme.spacing(1.5)
+      },
       marginRight: theme.spacing(2)
     },
     header: {
+      [theme.breakpoints.down("sm")]: {
+        height: 88,
+        marginBottom: 0
+      },
       display: "flex",
       height: 40,
       marginBottom: theme.spacing(3)
@@ -177,6 +190,9 @@ const useStyles = makeStyles(
       [theme.breakpoints.up("md")]: {
         display: "none"
       },
+      [theme.breakpoints.down("sm")]: {
+        left: 0
+      },
       background: theme.palette.background.paper,
       borderRadius: "50%",
       cursor: "pointer",
@@ -237,12 +253,20 @@ const useStyles = makeStyles(
       flex: 1
     },
     userBar: {
+      [theme.breakpoints.down("sm")]: {
+        alignItems: "flex-end",
+        flexDirection: "column-reverse",
+        overflow: "hidden"
+      },
       alignItems: "center",
       display: "flex"
     },
     userChip: {
       backgroundColor: theme.palette.background.paper,
-      color: theme.palette.text.primary
+      borderRadius: 24,
+      color: theme.palette.text.primary,
+      height: 40,
+      padding: theme.spacing(0.5)
     },
     userMenuContainer: {
       position: "relative"
@@ -412,6 +436,9 @@ const AppLayout = withRouter<AppLayoutProps & RouteComponentProps<any>, any>(
                                     <Avatar alt="user" src={user.avatar.url} />
                                   )
                                 }
+                                classes={{
+                                  avatar: classes.avatar
+                                }}
                                 className={classes.userChip}
                                 label={
                                   <>
@@ -430,7 +457,6 @@ const AppLayout = withRouter<AppLayoutProps & RouteComponentProps<any>, any>(
                                 open={isMenuOpened}
                                 anchorEl={anchor.current}
                                 transition
-                                disablePortal
                                 placement="bottom-end"
                               >
                                 {({ TransitionProps, placement }) => (
