@@ -6,6 +6,8 @@ All notable, unreleased changes to this project will be documented in this file.
 
 - Fix minor bugs - #244 by @dominik-zeglen
 - Fix tax settings updating - #243 by @dominik-zeglen
+- Add secret fields in plugin configuration - #246 by @dominik-zeglen
+- Fix subcategories pagination - #249 by @dominik-zeglen
 - Improve mobile appearance - #240 by @benekex2 and @dominik-zeglen
 
 ## 2.0.0
